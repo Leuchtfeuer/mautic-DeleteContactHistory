@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\EventListener;
 
 use Mautic\CampaignBundle\CampaignEvents;
@@ -47,6 +49,7 @@ class HistorySubscriber implements EventSubscriberInterface
         $lead   = $event->getLead();
         $lead_id = $lead->getId();
         $somethingHappened = false;
+
 
         foreach ($config as $value)
         {
