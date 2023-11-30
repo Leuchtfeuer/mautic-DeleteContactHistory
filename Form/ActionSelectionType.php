@@ -26,7 +26,7 @@ class ActionSelectionType extends AbstractType
             [
                 'multiple'  => true,
                 'required'  => true,
-                'label' => 'Select Table to Clear',
+                'label' => 'Select information to be deleted',
                 'choices'   => [
                     self::PAGE_HITS => self::PAGE_HITS,
                     self::EMAIL_OPEN_LINK_CLICKS => self::EMAIL_OPEN_LINK_CLICKS,
