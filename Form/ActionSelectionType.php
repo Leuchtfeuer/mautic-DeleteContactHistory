@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class HistorySelectionType extends AbstractType
+class ActionSelectionType extends AbstractType
 {
     public const PAGE_HITS = 'Clear all page hits';
     public const EMAIL_OPEN_LINK_CLICKS = 'Clear all email open & link clicks';

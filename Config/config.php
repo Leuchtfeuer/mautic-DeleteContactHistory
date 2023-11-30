@@ -13,8 +13,8 @@ return [
 
     'services'      => [
         'integrations'  => [
-            'mautic.integration.history' => [
-                'class'     => \MauticPlugin\LeuchtfeuerHistoryBundle\Integration\HistoryIntegration::class,
+            'mautic.integration.leuchtfeuerdeletecontacthistory' => [
+                'class'     => \MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\Integration\LeuchtfeuerDeleteContactHistoryIntegration::class,
                 'arguments' => [
                     'event_dispatcher',
                     'mautic.helper.cache_storage',

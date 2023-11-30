@@ -6,11 +6,11 @@ use Mautic\CampaignBundle\CampaignEvents;
 use Mautic\CampaignBundle\Event\CampaignBuilderEvent;
 use Mautic\CampaignBundle\Event\CampaignExecutionEvent;
 use Mautic\LeadBundle\LeadEvents;
-use MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\Form\HistorySelectionType;
+use MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\Form\ActionSelectionType;
 use MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\Services\HistoryActions;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class HistorySubscriber implements EventSubscriberInterface
+class CampaignSubsriber implements EventSubscriberInterface
 {
     public function __construct(private HistoryActions $historyActions)
     {
@@ -31,7 +31,7 @@ class HistorySubscriber implements EventSubscriberInterface
             [
                 'label'             => 'mautic.lead.lead.events.history',
                 'description'       => 'mautic.lead.lead.events.history_descr',
-                'formType'          => HistorySelectionType::class,
+                'formType'          => ActionSelectionType::class,
                 'eventName'         => LeadEvents::ON_CAMPAIGN_TRIGGER_ACTION,
             ]
         );
@@ -50,23 +50,23 @@ class HistorySubscriber implements EventSubscriberInterface
 
         foreach ($config as $value)
         {
-            if ($value == HistorySelectionType::PAGE_HITS) {
+            if ($value == ActionSelectionType::PAGE_HITS) {
                 $this->historyActions->clearPageHits($lead_id);
                 $somethingHappened = true;
             }
-            elseif ($value == HistorySelectionType::EMAIL_OPEN_LINK_CLICKS) {
+            elseif ($value == ActionSelectionType::EMAIL_OPEN_LINK_CLICKS) {
                 $this->historyActions->clearAllEmailLinkClicks($lead_id);
                 $somethingHappened = true;
             }
-            elseif ($value == HistorySelectionType::FOCUS_ITEMS_STATS) {
+            elseif ($value == ActionSelectionType::FOCUS_ITEMS_STATS) {
                 $this->historyActions->clearFocusItemsStats($lead_id);
                 $somethingHappened = true;
             }
-            elseif ($value == HistorySelectionType::ASSET_DOWNLOADS) {
+            elseif ($value == ActionSelectionType::ASSET_DOWNLOADS) {
                 $this->historyActions->clearAssetDownloads($lead_id);
                 $somethingHappened = true;
             }
-            elseif ($value == HistorySelectionType::ALL) {
+            elseif ($value == ActionSelectionType::ALL) {
                 $this->historyActions->clearAll($lead_id);
                 $somethingHappened = true;
             }
