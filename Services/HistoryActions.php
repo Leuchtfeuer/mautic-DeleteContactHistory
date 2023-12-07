@@ -59,9 +59,11 @@ class HistoryActions
             ->update()
             ->set('stat.lastOpened', ':nullValue')
             ->set('stat.openDetails', ':nullValue')
+            ->set('stat.isRead', ':notOne')
             ->where('stat.lead = :lead_id')
             ->setParameter('nullValue', null)
-            ->setParameter('lead_id', $lead_id);
+            ->setParameter('lead_id', $lead_id)
+            ->setParameter('notOne', 0);
 
         $query->getQuery()->execute();
     }

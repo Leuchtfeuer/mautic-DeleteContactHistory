@@ -6,9 +6,9 @@ namespace MauticPlugin\LeuchtfeuerDeleteContactHistoryBundle\Integration;
 
 use Mautic\PluginBundle\Integration\AbstractIntegration;
 
-class HistoryIntegration extends AbstractIntegration
+class LeuchtfeuerDeleteContactHistoryIntegration extends AbstractIntegration
 {
-    public const PLUGIN_NAME = 'Action';
+    public const PLUGIN_NAME = 'LeuchtfeuerDeleteContactHistory';
     public const DISPLAY_NAME = 'Delete Contact History by Leuchtfeuer';
     public const AUTHENTICATION_TYPE = 'none';
 

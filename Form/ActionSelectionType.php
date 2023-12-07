@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class HistorySelectionType extends AbstractType
+class ActionSelectionType extends AbstractType
 {
     public const PAGE_HITS = 'Clear all page hits';
     public const EMAIL_OPEN_LINK_CLICKS = 'Clear all email open & link clicks';
@@ -26,7 +26,7 @@ class HistorySelectionType extends AbstractType
             [
                 'multiple'  => true,
                 'required'  => true,
-                'label' => 'Select Table to Clear',
+                'label' => 'Select information to be deleted',
                 'choices'   => [
                     self::PAGE_HITS => self::PAGE_HITS,
                     self::EMAIL_OPEN_LINK_CLICKS => self::EMAIL_OPEN_LINK_CLICKS,
