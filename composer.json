@@ -16,7 +16,7 @@
     "integration"
   ],
   "extra": {
-    "install-directory-name": "LeuchtfeuerLogBundle"
+    "install-directory-name": "LeuchtfeuerDeleteContactHistoryBundle"
   },
   "minimum-stability": "dev",
   "require": {
