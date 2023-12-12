@@ -11,7 +11,7 @@ Adds campaign action to remove the following data
 * Clear all assets downloads
 * Clear all Focus Item stats
 * Clea all email open & link clicks
-* All (if the above)
+* All (of the above)
 
 ### Author
 Leuchtfeuer Digital Marketing GmbH
