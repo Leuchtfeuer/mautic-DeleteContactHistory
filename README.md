@@ -10,11 +10,11 @@ Campaign action to selectively remove history data from a contact (e.g. for GDPR
 2. Enable plugin
 
 ## Features
-Adds campaign action to remove the following data
-* Clear all page hits
-* Clear all assets downloads
-* Clear all Focus Item stats
-* Clea all email open & link clicks
+Adds campaign action to remove the following data of the contact in the campaign
+* Clear all the page hits
+* Clear all the assets downloads
+* Clear all the Focus Item stats
+* Clear all the email open & link clicks
 * All (of the above)
 
 ### Author
