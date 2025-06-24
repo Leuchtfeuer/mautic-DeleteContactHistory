@@ -1,12 +1,13 @@
 {
-  "name": "leuchtfeuer/mautic-DeleteContactHistory",
+  "name": "leuchtfeuer/mautic-deletedontacthistory",
   "description": "Campaign action to selectively remove history data from a contact (e.g. for GDPR)",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Leuchtfeuer Digital Marketing GmbH",
       "email": "mautic-plugins@Leuchtfeuer.com",
-      "homepage": "https://www.Leuchtfeuer.com"
+      "homepage": "https://www.Leuchtfeuer.com",
+      "role": "Developer"
     }
   ],
   "type": "mautic-plugin",
@@ -20,6 +21,7 @@
   },
   "minimum-stability": "dev",
   "require": {
+    "php": "^8.0",
     "mautic/core-lib": "^5.0"
   }
 }
