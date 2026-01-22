@@ -103,6 +103,7 @@ class DeleteContactHistoryFunctionalTest extends MauticMysqlTestCase
         $targetStat = $targetStats[0];
         Assert::assertFalse($targetStat->isRead(), 'Target contact email stat should have isRead=false');
         Assert::assertNull($targetStat->getLastOpened(), 'Target contact email stat should have lastOpened=null');
+        // @phpstan-ignore-next-line
         Assert::assertNull($targetStat->getOpenDetails(), 'Target contact email stat should have openDetails=null');
 
         // Verify target contact's stat devices are deleted
