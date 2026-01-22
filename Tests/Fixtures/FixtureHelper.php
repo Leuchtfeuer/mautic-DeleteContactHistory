@@ -37,7 +37,6 @@ final class FixtureHelper
         $integration->setPlugin($plugin);
         $integration->setIsPublished(true);
         $integration->setName('LeuchtfeuerDeleteContactHistory');
-        $integration->setApiKeys([]);
         $this->em->persist($integration);
         $this->em->flush();
     }
@@ -186,7 +185,7 @@ final class FixtureHelper
         $download->setIpAddress($ipAddress);
         $download->setDateDownload(new \DateTime());
         $download->setCode(200);
-        $download->setTrackingId(bin2hex(random_bytes(16)));
+        $download->setTrackingId(bin2hex(random_bytes(16))); // @phpstan-ignore-line
         $this->em->persist($download);
         $this->em->flush();
 
