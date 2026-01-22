@@ -2,7 +2,7 @@
 Campaign action to selectively remove history data from a contact (e.g. for GDPR)
 
 # Version Support
-* Mautic 5.2
+* Mautic 5.2, 6.0, 7.x
 * PHP min. 8.1
 
 ## Install
