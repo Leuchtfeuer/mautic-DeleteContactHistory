@@ -34,11 +34,11 @@ jobs:
           - php-versions: '8.4'
             mautic-versions: '7.0'
 
-    name: Tests on PHP ${{ matrix.php-versions }}, MariaDB, Mautic ${{ matrix.mautic-versions }}
+    name: Tests on PHP ${{ matrix.php-versions }}, MySQL, Mautic ${{ matrix.mautic-versions }}
 
     services:
       database:
-        image: mariadb:10.11
+        image: mysql:8.4
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: mautictest
@@ -46,7 +46,7 @@ jobs:
           - 3306
         options: >-
           --shm-size=2gb
-          --name=mariadb
+          --name=mysql
           --tmpfs=/var/lib/mysql
           --health-cmd="mysqladmin ping"
           --health-interval=10s
