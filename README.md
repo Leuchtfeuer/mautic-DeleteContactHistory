@@ -2,8 +2,8 @@
 Campaign action to selectively remove history data from a contact (e.g. for GDPR)
 
 # Version Support
-* Mautic 5.x
-* PHP min. 8.0
+* Mautic 5.2, 6.0, 7.x
+* PHP min. 8.1
 
 ## Install
 1. Install bundle into LeuchtfeuerDeleteContactHistoryBundle directory in plugins/ directory or via composer

@@ -22,11 +22,12 @@ class CampaignSubsriber implements EventSubscriberInterface
     {
         return [
             CampaignEvents::CAMPAIGN_ON_BUILD           => ['chooseAction', 0],
+            // @phpstan-ignore-next-line
             LeadEvents::ON_CAMPAIGN_TRIGGER_ACTION      => ['onClearHistoryEvent', 0],
         ];
     }
 
-    public function chooseAction(CampaignBuilderEvent $event)
+    public function chooseAction(CampaignBuilderEvent $event): void
     {
         $event->addAction(
             'lead.history',
@@ -34,46 +35,42 @@ class CampaignSubsriber implements EventSubscriberInterface
                 'label'             => 'mautic.lead.lead.events.history',
                 'description'       => 'mautic.lead.lead.events.history_descr',
                 'formType'          => ActionSelectionType::class,
+                // @phpstan-ignore-next-line
                 'eventName'         => LeadEvents::ON_CAMPAIGN_TRIGGER_ACTION,
             ]
         );
     }
 
-    public function onClearHistoryEvent(CampaignExecutionEvent $event)
+    // @phpstan-ignore-next-line
+    public function onClearHistoryEvent(CampaignExecutionEvent $event): void
     {
         if (!$event->checkContext('lead.history')) {
             return;
         }
 
-        $config = $event->getConfig()['clearHistory'];
-        $lead   = $event->getLead();
-        $lead_id = $lead->getId();
+        $config            = $event->getConfig()['clearHistory'];
+        $lead              = $event->getLead();
+        $lead_id           = $lead->getId();
         $somethingHappened = false;
 
-
-        foreach ($config as $value)
-        {
-            if ($value == ActionSelectionType::PAGE_HITS) {
+        foreach ($config as $value) {
+            if (ActionSelectionType::PAGE_HITS == $value) {
                 $this->historyActions->clearPageHits($lead_id);
                 $somethingHappened = true;
-            }
-            elseif ($value == ActionSelectionType::EMAIL_OPEN_LINK_CLICKS) {
+            } elseif (ActionSelectionType::EMAIL_OPEN_LINK_CLICKS == $value) {
                 $this->historyActions->clearAllEmailLinkClicks($lead_id);
                 $somethingHappened = true;
-            }
-            elseif ($value == ActionSelectionType::FOCUS_ITEMS_STATS) {
+            } elseif (ActionSelectionType::FOCUS_ITEMS_STATS == $value) {
                 $this->historyActions->clearFocusItemsStats($lead_id);
                 $somethingHappened = true;
-            }
-            elseif ($value == ActionSelectionType::ASSET_DOWNLOADS) {
+            } elseif (ActionSelectionType::ASSET_DOWNLOADS == $value) {
                 $this->historyActions->clearAssetDownloads($lead_id);
                 $somethingHappened = true;
-            }
-            elseif ($value == ActionSelectionType::ALL) {
+            } elseif (ActionSelectionType::ALL == $value) {
                 $this->historyActions->clearAll($lead_id);
                 $somethingHappened = true;
             }
         }
-        return $event->setResult($somethingHappened);
+        $event->setResult($somethingHappened);
     }
 }
